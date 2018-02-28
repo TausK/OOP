@@ -25,7 +25,6 @@ namespace Astroids
             }
             //Rotate in correct direction
             movement.Rotate(inputH); // Simplified version of having if statements
-                //Check if horizontal axis (left or right arrow) is pressed         
         }
         
     }
