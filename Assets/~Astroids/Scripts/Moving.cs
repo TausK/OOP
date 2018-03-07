@@ -30,9 +30,10 @@ namespace Astroids
         {
             LimitVelocity();
         }
-
+        // Capping the velocity when it goes too high
         void LimitVelocity()
         {
+            // Made a copy of rb.Velocity
             Vector3 vel = rb.velocity; // Velocity = rigidbodys velocity
             if(vel.magnitude > maxVelocity) //if vector3(player) magnitude > player Velocity Then
             {
@@ -45,12 +46,24 @@ namespace Astroids
         public void Accelerate(Vector3 direction)
         {
             rb.AddForce(direction * acceleration);
-        }
 
-        public void Rotate(float angleOffset)
+        }
+        public void AngularRotation(float inputH)
         {
-            rb.rotation -= angleOffset * rotationSpeed * Time.deltaTime;
+            rb.rotation += inputH * rotationSpeed * Time.deltaTime;
+        }
+        
+       
+
+      /*   public void RotateRight()
+        {
+         rb.rotation -= rotationSpeed * Time.deltaTime; // Rotating clockwise direction
         }
 
+        public void RotateLeft()
+        {
+            rb.rotation += rotationSpeed * Time.deltaTime; // Rotating anti-clockwise direction
+        }
+        */
     }
 }

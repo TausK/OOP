@@ -22,9 +22,29 @@ namespace Astroids
 
                 // Accelerate player
                 movement.Accelerate(transform.up); // Player will move up 
+             
             }
+            if(inputV < 0)
+            {
+                movement.Accelerate(-transform.up);// Player will move backwards
+            }
+
+            movement.AngularRotation(inputH);
+            /*
+            if (Input.GetKey(KeyCode.D))
+            {
+                movement.RotateRight();
+            }
+
+            if (Input.GetKey(KeyCode.A))
+            {
+                movement.RotateLeft();
+            }
+            */
             //Rotate in correct direction
-            movement.Rotate(inputH); // Simplified version of having if statements
+        // Simplified version of rotating left and right
+
+      
         }
         
     }
