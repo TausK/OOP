@@ -2,21 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 namespace Astroids
 {
-    public class AstroidSpawner : MonoBehaviour
+    public class DestroyOnLifetime : MonoBehaviour
     {
-
+        public float lifeTime = 5f;
         // Use this for initialization
         void Start()
         {
-
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-
+            Destroy(gameObject, lifeTime);
         }
     }
 }
