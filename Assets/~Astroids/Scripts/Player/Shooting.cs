@@ -9,6 +9,9 @@ namespace Astroids
         public GameObject bulletPrefab;
         public float bulletSpeed;
         public Transform[] spawnPoint;
+
+       
+      
        // public float shootRate = 1;
 
       //  private float shootTimer = 0f;

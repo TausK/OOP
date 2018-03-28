@@ -5,11 +5,12 @@ using UnityEngine;
 public class AsteroidSpawner : MonoBehaviour
 {
     public GameObject[] Prefabs;
+    public float minSpeed = 1f;
+    public float maxSpeed = 5f;
     public float spawnRate = 1f;
-
     private float spawnTimer = 0f;
 
-    //Camera
+    //Camera bounds
     private Bounds camBounds;
     private float camWidth;
     private float camHeight;
@@ -76,8 +77,17 @@ public class AsteroidSpawner : MonoBehaviour
 
     public void SpawnAtPosition(Vector3 position)
     {
-       
-            
+        //Select random asteroid
+        int randindex = Random.Range(0, Prefabs.Length);
+        GameObject asteroid = Instantiate(Prefabs[randindex], transform.position, transform.rotation);
+        asteroid.transform.position = position;
+
+        Rigidbody2D rigid = asteroid.GetComponent<Rigidbody2D>();
+        float randomSpeed = Random.Range(minSpeed, maxSpeed);
+        Vector2 randomDir = Random.onUnitSphere;
+        rigid.AddForce(randomDir * randomSpeed, ForceMode2D.Impulse);
     }
+
+   
 
 }
