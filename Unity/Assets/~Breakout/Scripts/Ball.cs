@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 namespace Breakout
 {
 
@@ -10,7 +10,7 @@ namespace Breakout
         #region Variables
         //Speed that the ball travels
         public float speed = 5f;
-
+       
         //Velocity of the ball 
         private Vector3 velocity;
 
@@ -36,6 +36,7 @@ namespace Breakout
             Vector3 reflect = Vector3.Reflect(velocity, contact.normal);
             //Calculate new velocity from reflection multiply by the same speed (velocuty.magnitude)
             velocity = reflect.normalized * velocity.magnitude;
+           
         }
     }
 }
